@@ -33,9 +33,9 @@
 ### 💻 LeetCode 
 <div align="center">
   
-[![LeetCode Profile](https://img.shields.io/badge/LeetCode-hemilpatel0195-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/Hemil195)
+[![LeetCode Profile](https://img.shields.io/badge/LeetCode-hemilpatel0195-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/hemilpatel0195)
 
-![LeetCode Stats](https://leetcard.jacoblin.cool/hemilapatel0195?theme=dark&font=Roboto&ext=contest)
+![LeetCode Stats](https://leetcard.jacoblin.cool/hemilpatel0195?theme=dark&font=Roboto&ext=contest)
 
 </div>
 
@@ -54,6 +54,13 @@
 [![HackerRank Profile](https://img.shields.io/badge/HackerRank-hemilpatel0195-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white)](https://www.hackerrank.com/profile/hemilpatel0195)
 
 </div>
+
+<!-- HACKERRANK_STATS_START -->
+**🏅 Automated Stats:**
+- 🏅 **Badges:** 0
+- 🎯 **Rank:** N/A
+- 💎 **Skills:** Problem Solving, Algorithms
+<!-- HACKERRANK_STATS_END -->
 
 ## 🛠️ Technologies & Tools
 
@@ -76,8 +83,8 @@
 <div align="center">
 
 [![GitHub](https://img.shields.io/badge/GitHub-Hemil195-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Hemil195)
-[![LeetCode](https://img.shields.io/badge/LeetCode-Hemil195-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/Hemil195)
-[![HackerRank](https://img.shields.io/badge/HackerRank-Hemil195-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white)](https://www.hackerrank.com/profile/Hemil195)
+[![LeetCode](https://img.shields.io/badge/LeetCode-hemilpatel0195-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/hemilpatel0195)
+[![HackerRank](https://img.shields.io/badge/HackerRank-hemilpatel0195-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white)](https://www.hackerrank.com/profile/hemilpatel0195)
 
 </div>
 ---
