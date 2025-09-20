@@ -1,0 +1,5 @@
+# Requirements for the GitHub Profile Stats System
+# Python 3.11+ recommended
+
+requests==2.31.0
+beautifulsoup4==4.12.2
