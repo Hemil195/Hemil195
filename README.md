@@ -50,12 +50,11 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 </div>
 
 <!-- LEETCODE_STATS_START -->
-**📈 Automated Stats:**
-- 📈 **Problems Solved:** 0
-- 🟢 **Easy:** 0
-- 🟡 **Medium:** 0  
-- 🔴 **Hard:** 0
-- 🏆 **Ranking:** N/A
+- 📈 **Problems Solved:** 206
+- 🟢 **Easy:** 141
+- 🟡 **Medium:** 62  
+- 🔴 **Hard:** 3
+- 🏆 **Ranking:** #654,282
 <!-- LEETCODE_STATS_END -->
 
 ### 🏆 HackerRank
@@ -66,10 +65,9 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 </div>
 
 <!-- HACKERRANK_STATS_START -->
-**🏅 Automated Stats:**
-- 🏅 **Badges:** 0
-- 🎯 **Rank:** N/A
-- 💎 **Skills:** Problem Solving, Algorithms
+- 🏅 **Badges:** 24
+- 🎯 **Rank:** None
+- 💎 **Skills:** hemilpatel0195 hasnot earned any certificates yet.
 - 📊 **Points:** 0
 <!-- HACKERRANK_STATS_END -->
 
@@ -111,6 +109,6 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 ![Profile Views](https://komarev.com/ghpvc/?username=Hemil195&color=blue&style=for-the-badge)
 
-*Last updated: September 20, 2025 at 01:19 PM UTC*
+*Last updated: September 21, 2025 at 06:18 AM UTC*
 
 </div>
