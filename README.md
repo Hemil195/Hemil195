@@ -6,7 +6,6 @@
 
 [![GitHub followers](https://img.shields.io/github/followers/Hemil195?style=social&label=Followers)](https://github.com/Hemil195)
 [![GitHub stars](https://img.shields.io/github/stars/Hemil195?style=social&label=Stars)](https://github.com/Hemil195)
-[![Profile Views](https://komarev.com/ghpvc/?username=Hemil195&color=blue&style=social&label=Profile+Views)](https://github.com/Hemil195)
 
 </div>
 
@@ -71,6 +70,7 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 - 🏅 **Badges:** 0
 - 🎯 **Rank:** N/A
 - 💎 **Skills:** Problem Solving, Algorithms
+- 📊 **Points:** 0
 <!-- HACKERRANK_STATS_END -->
 
 

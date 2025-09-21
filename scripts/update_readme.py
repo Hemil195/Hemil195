@@ -106,19 +106,28 @@ class GitHubStatsCollector:
             }
             
             try:
-                response = self.session.get(url, params=params)
+                response = self.session.get(url, params=params, timeout=30)
                 if response.status_code == 200:
                     # Get total count from Link header
                     link_header = response.headers.get('Link', '')
                     if 'rel="last"' in link_header:
                         last_page = re.search(r'page=(\d+).*rel="last"', link_header)
                         if last_page:
-                            total_commits += int(last_page.group(1))
+                            commits_count = int(last_page.group(1))
+                            total_commits += commits_count
+                            logger.info(f"Repository {repo['name']}: {commits_count} commits")
                     else:
                         # If no pagination, count the commits directly
                         commits = response.json()
                         if commits:
-                            total_commits += len(commits)
+                            commits_count = len(commits)
+                            total_commits += commits_count
+                            logger.info(f"Repository {repo['name']}: {commits_count} commits")
+                elif response.status_code == 409:
+                    # Repository is empty
+                    logger.info(f"Repository {repo['name']}: Empty repository")
+                else:
+                    logger.warning(f"Could not get commits for {repo['name']}: HTTP {response.status_code}")
             except Exception as e:
                 logger.warning(f"Could not get commits for {repo['name']}: {e}")
                 continue
@@ -132,7 +141,15 @@ class GitHubStatsCollector:
         """Get total stars across all repositories"""
         logger.info("Calculating total stars...")
         repos = self.get_repositories()
-        total_stars = sum(repo['stargazers_count'] for repo in repos if not repo['fork'])
+        total_stars = 0
+        
+        for repo in repos:
+            if not repo['fork']:  # Only count original repositories
+                stars = repo.get('stargazers_count', 0)
+                total_stars += stars
+                if stars > 0:
+                    logger.info(f"Repository {repo['name']}: {stars} stars")
+        
         logger.info(f"Total stars: {total_stars}")
         return total_stars
     
@@ -143,7 +160,7 @@ class GitHubStatsCollector:
         language_stats = {}
         
         for repo in repos:
-            if repo['fork'] or not repo['language']:
+            if repo['fork']:  # Skip forked repositories
                 continue
                 
             # Get detailed language stats for this repo
@@ -153,12 +170,19 @@ class GitHubStatsCollector:
             if languages:
                 for lang, bytes_count in languages.items():
                     language_stats[lang] = language_stats.get(lang, 0) + bytes_count
+                    logger.info(f"Repository {repo['name']}: {lang} ({bytes_count} bytes)")
+            else:
+                # If no detailed language stats, use the primary language
+                primary_lang = repo.get('language')
+                if primary_lang:
+                    language_stats[primary_lang] = language_stats.get(primary_lang, 0) + 1000  # Default weight
+                    logger.info(f"Repository {repo['name']}: {primary_lang} (primary language)")
             
             time.sleep(0.1)  # Rate limiting
         
         # Sort by usage
         sorted_languages = dict(sorted(language_stats.items(), key=lambda x: x[1], reverse=True))
-        logger.info(f"Found {len(sorted_languages)} languages")
+        logger.info(f"Found {len(sorted_languages)} languages: {list(sorted_languages.keys())}")
         return sorted_languages
     
     def get_contribution_streak(self) -> int:
@@ -278,22 +302,94 @@ class HackerRankStatsCollector:
                 'skills': []
             }
             
-            # Try to extract badges count
-            badge_elements = soup.find_all('div', class_='badge-item')
-            stats['badges'] = len(badge_elements)
+            # Try multiple selectors for badges
+            badge_selectors = [
+                'div.badge-item',
+                'div[class*="badge"]',
+                '.badge',
+                'div[data-test="badge"]',
+                '.certificate-item',
+                'div[class*="certificate"]'
+            ]
             
-            # Try to extract rank and points from various selectors
-            rank_element = soup.find('div', class_='profile-rank')
-            if rank_element:
-                rank_text = rank_element.get_text(strip=True)
-                # Extract rank number if present
-                rank_match = re.search(r'#(\d+)', rank_text)
-                if rank_match:
-                    stats['rank'] = int(rank_match.group(1))
+            for selector in badge_selectors:
+                badge_elements = soup.select(selector)
+                if badge_elements:
+                    stats['badges'] = len(badge_elements)
+                    logger.info(f"Found {stats['badges']} badges using selector: {selector}")
+                    break
             
-            # Extract skills
-            skill_elements = soup.find_all('div', class_='skill-item') or soup.find_all('span', class_='skill-name')
-            stats['skills'] = [skill.get_text(strip=True) for skill in skill_elements[:5]]  # Top 5 skills
+            # Try multiple selectors for rank
+            rank_selectors = [
+                'div.profile-rank',
+                'span[class*="rank"]',
+                '.rank',
+                'div[data-test="rank"]',
+                'span[class*="position"]',
+                '.position'
+            ]
+            
+            for selector in rank_selectors:
+                rank_element = soup.select_one(selector)
+                if rank_element:
+                    rank_text = rank_element.get_text(strip=True)
+                    # Extract rank number if present
+                    rank_match = re.search(r'#?(\d+)', rank_text)
+                    if rank_match:
+                        stats['rank'] = int(rank_match.group(1))
+                        logger.info(f"Found rank: {stats['rank']} using selector: {selector}")
+                        break
+            
+            # Try multiple selectors for points
+            points_selectors = [
+                'div[class*="point"]',
+                '.points',
+                'span[class*="point"]',
+                'div[data-test="points"]',
+                '.score'
+            ]
+            
+            for selector in points_selectors:
+                points_element = soup.select_one(selector)
+                if points_element:
+                    points_text = points_element.get_text(strip=True)
+                    points_match = re.search(r'(\d+)', points_text)
+                    if points_match:
+                        stats['points'] = int(points_match.group(1))
+                        logger.info(f"Found points: {stats['points']} using selector: {selector}")
+                        break
+            
+            # Try multiple selectors for skills
+            skill_selectors = [
+                'div.skill-item',
+                'span.skill-name',
+                'div[class*="skill"]',
+                'span[class*="skill"]',
+                'div[data-test="skill"]',
+                '.skill-tag',
+                'div[class*="certificate"]'
+            ]
+            
+            for selector in skill_selectors:
+                skill_elements = soup.select(selector)
+                if skill_elements:
+                    skills = [skill.get_text(strip=True) for skill in skill_elements[:5]]
+                    # Filter out empty skills and common non-skill text
+                    skills = [skill for skill in skills if skill and len(skill) > 2 and skill not in ['Badges', 'Certificates', 'Skills']]
+                    if skills:
+                        stats['skills'] = skills
+                        logger.info(f"Found skills: {stats['skills']} using selector: {selector}")
+                        break
+            
+            # If no skills found, try to extract from any text that might contain skill names
+            if not stats['skills']:
+                # Look for common programming languages/technologies
+                page_text = soup.get_text().lower()
+                common_skills = ['python', 'java', 'javascript', 'c++', 'sql', 'algorithms', 'data structures', 'problem solving']
+                found_skills = [skill.title() for skill in common_skills if skill in page_text]
+                if found_skills:
+                    stats['skills'] = found_skills[:3]
+                    logger.info(f"Found skills from page text: {stats['skills']}")
             
             logger.info(f"HackerRank stats: {stats}")
             return stats
@@ -419,7 +515,8 @@ class READMEUpdater:
         
         hackerrank_section = f"""- 🏅 **Badges:** {hackerrank_stats.get('badges', 0):,}
 - 🎯 **Rank:** {rank}
-- 💎 **Skills:** {skills_str}"""
+- 💎 **Skills:** {skills_str}
+- 📊 **Points:** {hackerrank_stats.get('points', 0):,}"""
         
         # Replace sections using regex
         content = re.sub(
@@ -468,33 +565,65 @@ def main():
         return
     
     # Collect GitHub stats
+    logger.info(f"Collecting GitHub stats for user: {github_username}")
     github_collector = GitHubStatsCollector(github_token, github_username)
-    github_stats = {
-        'total_commits': github_collector.get_total_commits(),
-        'total_stars': github_collector.get_total_stars(),
-        'languages': github_collector.get_language_stats()
-    }
+    
+    try:
+        github_stats = {
+            'total_commits': github_collector.get_total_commits(),
+            'total_stars': github_collector.get_total_stars(),
+            'languages': github_collector.get_language_stats()
+        }
+        logger.info(f"GitHub stats collected successfully: {github_stats}")
+    except Exception as e:
+        logger.error(f"Failed to collect GitHub stats: {e}")
+        github_stats = {
+            'total_commits': 0,
+            'total_stars': 0,
+            'languages': {}
+        }
     
     # Collect LeetCode stats
     leetcode_stats = {}
     if leetcode_username:
-        leetcode_collector = LeetCodeStatsCollector(leetcode_username)
-        leetcode_stats = leetcode_collector.get_stats()
+        logger.info(f"Collecting LeetCode stats for user: {leetcode_username}")
+        try:
+            leetcode_collector = LeetCodeStatsCollector(leetcode_username)
+            leetcode_stats = leetcode_collector.get_stats()
+            logger.info(f"LeetCode stats collected successfully: {leetcode_stats}")
+        except Exception as e:
+            logger.error(f"Failed to collect LeetCode stats: {e}")
+            leetcode_stats = {}
     else:
         logger.warning("LEETCODE_USERNAME not provided, skipping LeetCode stats")
     
     # Collect HackerRank stats  
     hackerrank_stats = {}
     if hackerrank_username:
-        hackerrank_collector = HackerRankStatsCollector(hackerrank_username)
-        hackerrank_stats = hackerrank_collector.get_stats()
+        logger.info(f"Collecting HackerRank stats for user: {hackerrank_username}")
+        try:
+            hackerrank_collector = HackerRankStatsCollector(hackerrank_username)
+            hackerrank_stats = hackerrank_collector.get_stats()
+            logger.info(f"HackerRank stats collected successfully: {hackerrank_stats}")
+        except Exception as e:
+            logger.error(f"Failed to collect HackerRank stats: {e}")
+            hackerrank_stats = {}
     else:
         logger.warning("HACKERRANK_USERNAME not provided, skipping HackerRank stats")
     
     # Update README
+    logger.info("Updating README.md with collected stats...")
     readme_updater = READMEUpdater()
     readme_updater.update_readme(github_stats, leetcode_stats, hackerrank_stats)
     
+    # Summary
+    logger.info("=" * 50)
+    logger.info("STATS COLLECTION SUMMARY:")
+    logger.info(f"GitHub - Commits: {github_stats.get('total_commits', 0)}, Stars: {github_stats.get('total_stars', 0)}")
+    logger.info(f"Languages: {list(github_stats.get('languages', {}).keys())[:3]}")
+    logger.info(f"LeetCode - Problems: {leetcode_stats.get('total_solved', 0)}")
+    logger.info(f"HackerRank - Badges: {hackerrank_stats.get('badges', 0)}")
+    logger.info("=" * 50)
     logger.info("README stats update completed successfully!")
 
 
