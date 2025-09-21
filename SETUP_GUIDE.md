@@ -1,4 +1,4 @@
-# Automated GitHub Profile README Stats System
+# GitHub Profile README Stats System
 
 ## Overview
 
@@ -27,12 +27,12 @@ Navigate to your repository → **Settings** → **Secrets and variables** → *
 
 #### Required Secrets:
 
-1. **GITHUB_TOKEN** (Required)
+1. **TOKEN_GITHUB** (Required)
    - Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)
    - Generate a new token with the following scopes:
      - `repo` (Full control of private repositories)
      - `read:user` (Read user profile data)
-   - Copy the token and add it as a secret named `GITHUB_TOKEN`
+   - Copy the token and add it as a secret named `TOKEN_GITHUB`
 
 #### Optional Secrets:
 
@@ -44,22 +44,7 @@ Navigate to your repository → **Settings** → **Secrets and variables** → *
    - Your HackerRank username (e.g., `your-hackerrank-username`)
    - If not provided, HackerRank stats will be skipped
 
-### Step 3: File Structure
-
-Ensure your repository has the following structure:
-
-```
-your-username/
-├── .github/
-│   └── workflows/
-│       └── update-readme.yml
-├── scripts/
-│   └── update_readme.py
-├── README.md
-└── (other files...)
-```
-
-### Step 4: Customize Your README.md
+### Step 3: Customize Your README.md
 
 1. **Update Personal Information**: Edit the README.md file to include your personal details
 2. **Verify Placeholders**: Ensure the following comment blocks exist in your README.md:
@@ -75,7 +60,7 @@ your-username/
 <!-- HACKERRANK_STATS_END -->
 ```
 
-### Step 5: Test the Setup
+### Step 4: Test the Setup
 
 1. **Manual Trigger**: Go to Actions tab → "Update README with Latest Stats" → "Run workflow"
 2. **Check Logs**: Monitor the workflow execution for any errors
@@ -97,37 +82,12 @@ schedule:
   # - cron: '0 0 * * 0'     # Weekly on Sundays
 ```
 
-### Customizing Stats Display
-
-Edit `scripts/update_readme.py` to customize:
-
-- **Language Count**: Change the number of top languages displayed
-- **Stat Formatting**: Modify how numbers are formatted (commas, etc.)
-- **Additional Metrics**: Add new GitHub API endpoints for more stats
-
-## API Rate Limits and Considerations
-
-### GitHub API
-- **Rate Limit**: 5,000 requests per hour for authenticated requests
-- **Best Practice**: The script includes rate limiting delays
-- **Fallback**: Failed requests return default values
-
-### LeetCode API
-- **Rate Limit**: No official limit, but includes delays to be respectful
-- **Method**: Uses GraphQL API for accurate data
-- **Fallback**: Returns empty stats if user not found
-
-### HackerRank API
-- **Method**: Web scraping (no official API)
-- **Rate Limit**: Includes delays to avoid being blocked
-- **Fallback**: Returns empty stats if profile inaccessible
-
 ## Troubleshooting
 
 ### Common Issues
 
-#### 1. "GITHUB_TOKEN not found" Error
-- **Solution**: Ensure you've added the `GITHUB_TOKEN` secret with proper permissions
+#### 1. "TOKEN_GITHUB not found" Error
+- **Solution**: Ensure you've added the `TOKEN_GITHUB` secret with proper permissions
 - **Check**: Token must have `repo` and `read:user` scopes
 
 #### 2. "Permission denied" Error
@@ -159,10 +119,10 @@ Edit `scripts/update_readme.py` to customize:
 3. **Test Locally** (Optional):
    ```bash
    # Install dependencies
-   pip install requests beautifulsoup4 matplotlib seaborn pillow
+   pip install requests beautifulsoup4
 
    # Set environment variables
-   export GITHUB_TOKEN="your_token"
+   export TOKEN_GITHUB="your_token"
    export GITHUB_USERNAME="your_username"
    export LEETCODE_USERNAME="your_leetcode_username"
    export HACKERRANK_USERNAME="your_hackerrank_username"
@@ -175,49 +135,7 @@ Edit `scripts/update_readme.py` to customize:
 
 1. **Token Security**: Never expose your GitHub token in code or logs
 2. **Minimal Permissions**: Use tokens with only necessary scopes
-3. **Regular Rotation**: Consider rotating tokens periodically
-4. **Secret Management**: Use GitHub Secrets, never commit tokens to repository
-
-## Customization Examples
-
-### Adding New GitHub Stats
-
-```python
-# In GitHubStatsCollector class
-def get_total_followers(self) -> int:
-    """Get total followers count"""
-    user_info = self.get_user_info()
-    return user_info.get('followers', 0)
-
-# In main() function
-github_stats['followers'] = github_collector.get_total_followers()
-```
-
-### Modifying README Template
-
-```python
-# In READMEUpdater._replace_stats()
-github_section = f"""- 🔥 **Total Commits:** {github_stats.get('total_commits', 0):,}
-- ⭐ **Total Stars:** {github_stats.get('total_stars', 0):,}
-- 👥 **Followers:** {github_stats.get('followers', 0):,}
-- 📚 **Top Languages:** {languages_str}"""
-```
-
-## Support and Contribution
-
-### Getting Help
-- Check the [GitHub Issues](../../issues) for known problems
-- Create a new issue with detailed error logs
-- Include your workflow run logs and error messages
-
-### Contributing
-- Fork the repository and create a feature branch
-- Test your changes thoroughly
-- Submit a pull request with detailed description
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
+3. **Secret Management**: Use GitHub Secrets, never commit tokens to repository
 
 ---
 

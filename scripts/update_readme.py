@@ -7,20 +7,19 @@ This script fetches stats from GitHub, LeetCode, and HackerRank
 and updates the README.md file with the latest information.
 
 Requirements:
-- GITHUB_TOKEN: Personal access token with repo scope
-- LEETCODE_USERNAME: Your LeetCode username
-- HACKERRANK_USERNAME: Your HackerRank username
+- TOKEN_GITHUB: Personal access token with repo scope
+- LEETCODE_USERNAME: Your LeetCode username (optional)
+- HACKERRANK_USERNAME: Your HackerRank username (optional)
 - GITHUB_USERNAME: Your GitHub username (auto-populated in workflow)
 """
 
 import os
 import re
-import json
 import time
 import logging
 import requests
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 from bs4 import BeautifulSoup
 
 # Configure logging
@@ -46,7 +45,7 @@ class GitHubStatsCollector:
     def _make_request(self, url: str, params: Dict = None) -> Optional[Dict]:
         """Make a request to the GitHub API with error handling"""
         try:
-            response = self.session.get(url, params=params)
+            response = self.session.get(url, params=params, timeout=30)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
@@ -168,6 +167,7 @@ class GitHubStatsCollector:
         # Note: This would require scraping the contribution graph or using GitHub GraphQL API
         # For now, return a placeholder
         return 0
+    
 
 
 class LeetCodeStatsCollector:
@@ -201,23 +201,6 @@ class LeetCodeStatsCollector:
                         }
                         profile {
                             ranking
-                            userAvatar
-                            realName
-                            aboutMe
-                            school
-                            websites
-                            countryName
-                            company
-                            jobTitle
-                            skillTags
-                            postViewCount
-                            postViewCountDiff
-                            reputation
-                            reputationDiff
-                            solutionCount
-                            solutionCountDiff
-                            categoryDiscussCount
-                            categoryDiscussCountDiff
                         }
                     }
                 }
@@ -225,7 +208,7 @@ class LeetCodeStatsCollector:
                 "variables": {"username": self.username}
             }
             
-            response = self.session.post(url, json=query)
+            response = self.session.post(url, json=query, timeout=30)
             response.raise_for_status()
             data = response.json()
             
@@ -283,7 +266,7 @@ class HackerRankStatsCollector:
         
         try:
             url = f"https://www.hackerrank.com/profile/{self.username}"
-            response = self.session.get(url)
+            response = self.session.get(url, timeout=30)
             response.raise_for_status()
             
             soup = BeautifulSoup(response.content, 'html.parser')
@@ -418,16 +401,24 @@ class READMEUpdater:
 - 📚 **Top Languages:** {languages_str}"""
         
         # Format LeetCode stats
+        ranking = leetcode_stats.get('ranking', 'N/A')
+        if ranking and ranking != 'N/A':
+            ranking = f"#{ranking:,}"
+        
         leetcode_section = f"""- 📈 **Problems Solved:** {leetcode_stats.get('total_solved', 0):,}
 - 🟢 **Easy:** {leetcode_stats.get('easy_solved', 0):,}
 - 🟡 **Medium:** {leetcode_stats.get('medium_solved', 0):,}  
 - 🔴 **Hard:** {leetcode_stats.get('hard_solved', 0):,}
-- 🏆 **Ranking:** {leetcode_stats.get('ranking', 'N/A')}"""
+- 🏆 **Ranking:** {ranking}"""
         
         # Format HackerRank stats
         skills_str = ', '.join(hackerrank_stats.get('skills', ['Problem Solving', 'Algorithms'])[:3])
+        rank = hackerrank_stats.get('rank', 'N/A')
+        if rank and rank != 'N/A':
+            rank = f"#{rank:,}"
+        
         hackerrank_section = f"""- 🏅 **Badges:** {hackerrank_stats.get('badges', 0):,}
-- 🎯 **Rank:** {hackerrank_stats.get('rank', 'N/A')}
+- 🎯 **Rank:** {rank}
 - 💎 **Skills:** {skills_str}"""
         
         # Replace sections using regex
@@ -467,13 +458,13 @@ def main():
     logger.info("Starting README stats update...")
     
     # Get environment variables
-    github_token = os.getenv('GITHUB_TOKEN')
+    github_token = os.getenv('TOKEN_GITHUB')
     github_username = os.getenv('GITHUB_USERNAME')
     leetcode_username = os.getenv('LEETCODE_USERNAME')
     hackerrank_username = os.getenv('HACKERRANK_USERNAME')
     
     if not github_token or not github_username:
-        logger.error("GITHUB_TOKEN and GITHUB_USERNAME are required!")
+        logger.error("TOKEN_GITHUB and GITHUB_USERNAME are required!")
         return
     
     # Collect GitHub stats

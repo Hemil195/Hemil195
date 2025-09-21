@@ -2,12 +2,9 @@ name: Update README with Latest Stats
 
 on:
   schedule:
-    # Runs every day at 6:00 AM UTC (adjust timezone as needed)
+    # Runs every day at 6:00 AM UTC
     - cron: '0 6 * * *'
   workflow_dispatch: # Allows manual trigger
-  push:
-    branches:
-      - main
 
 jobs:
   update-readme:
@@ -15,7 +12,6 @@ jobs:
     
     permissions:
       contents: write
-      actions: read
     
     steps:
       - name: Checkout repository
@@ -36,7 +32,7 @@ jobs:
       
       - name: Generate README stats
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
           LEETCODE_USERNAME: ${{ secrets.LEETCODE_USERNAME }}
           HACKERRANK_USERNAME: ${{ secrets.HACKERRANK_USERNAME }}
           GITHUB_USERNAME: ${{ github.repository_owner }}
