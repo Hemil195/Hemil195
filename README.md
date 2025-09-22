@@ -23,9 +23,9 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 ## 📊 GitHub Statistics
 
 <!-- GITHUB_STATS_START -->
-- 🔥 **Total Commits:** 10
+- 🔥 **Total Commits:** 11
 - ⭐ **Total Stars:** 3  
-- 📚 **Top Languages:** TypeScript, CSS, HTML
+- 📚 **Top Languages:** TypeScript, JavaScript, HTML
 <!-- GITHUB_STATS_END -->
 
 <div align="center">
@@ -54,7 +54,7 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 - 🟢 **Easy:** 141
 - 🟡 **Medium:** 62  
 - 🔴 **Hard:** 3
-- 🏆 **Ranking:** #654,282
+- 🏆 **Ranking:** #643,199
 <!-- LEETCODE_STATS_END -->
 
 ### 🏆 HackerRank
@@ -109,6 +109,6 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 ![Profile Views](https://komarev.com/ghpvc/?username=Hemil195&color=blue&style=for-the-badge)
 
-*Last updated: September 21, 2025 at 06:18 AM UTC*
+*Last updated: September 22, 2025 at 06:15 AM UTC*
 
 </div>
