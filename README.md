@@ -50,11 +50,11 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 </div>
 
 <!-- LEETCODE_STATS_START -->
-- 📈 **Problems Solved:** 211
-- 🟢 **Easy:** 145
+- 📈 **Problems Solved:** 213
+- 🟢 **Easy:** 147
 - 🟡 **Medium:** 63  
 - 🔴 **Hard:** 3
-- 🏆 **Ranking:** #629,802
+- 🏆 **Ranking:** #626,557
 <!-- LEETCODE_STATS_END -->
 
 ### 🏆 HackerRank
@@ -109,6 +109,6 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 ![Profile Views](https://komarev.com/ghpvc/?username=Hemil195&color=blue&style=for-the-badge)
 
-*Last updated: September 25, 2025 at 06:14 AM UTC*
+*Last updated: September 26, 2025 at 06:14 AM UTC*
 
 </div>
