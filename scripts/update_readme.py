@@ -5,9 +5,10 @@ GitHub Profile Stats Logger
 
 This script fetches stats from LeetCode and HackerRank
 and logs them for monitoring purposes.
+It also updates the timestamp in the README.md file.
 
 Note: Stats are displayed via embedded cards in README.
-This script is for logging and monitoring only.
+This script is for logging and timestamp updates.
 
 Requirements:
 - LEETCODE_USERNAME: Your LeetCode username (optional)
@@ -236,14 +237,39 @@ class HackerRankStatsCollector:
 
 
 class READMEUpdater:
-    """Updates the README.md file with collected statistics"""
+    """Updates the README.md file with timestamp"""
     
     def __init__(self, readme_path: str = "README.md"):
         self.readme_path = readme_path
     
     def update_readme(self, leetcode_stats: Dict, hackerrank_stats: Dict):
-        """Update README.md with new statistics"""
-        logger.info("Stats collection completed - no README updates needed")
+        """Update README.md timestamp"""
+        logger.info("Updating README timestamp...")
+        
+        # Read current README
+        try:
+            with open(self.readme_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+        except FileNotFoundError:
+            logger.error(f"README.md not found at {self.readme_path}")
+            return
+        
+        # Update timestamp
+        current_time = datetime.utcnow().strftime('%B %d, %Y at %I:%M %p UTC')
+        updated_content = re.sub(
+            r'\*Last updated: .*?\*',
+            f'*Last updated: {current_time}*',
+            content
+        )
+        
+        # Write updated content if there were changes
+        if updated_content != content:
+            with open(self.readme_path, 'w', encoding='utf-8') as f:
+                f.write(updated_content)
+            logger.info(f"README.md timestamp updated to: {current_time}")
+        else:
+            logger.info("No timestamp found to update in README.md")
+        
         logger.info("LeetCode and HackerRank stats are displayed via embedded cards")
     
 
