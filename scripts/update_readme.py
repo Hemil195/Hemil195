@@ -20,7 +20,7 @@ import re
 import time
 import logging
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 from bs4 import BeautifulSoup
 
@@ -254,8 +254,10 @@ class READMEUpdater:
             logger.error(f"README.md not found at {self.readme_path}")
             return
         
-        # Update timestamp
-        current_time = datetime.utcnow().strftime('%B %d, %Y at %I:%M %p UTC')
+        # Update timestamp to IST (UTC + 5:30)
+        utc_time = datetime.utcnow()
+        ist_time = utc_time + timedelta(hours=5, minutes=30)
+        current_time = ist_time.strftime('%B %d, %Y at %I:%M %p IST')
         updated_content = re.sub(
             r'\*Last updated: .*?\*',
             f'*Last updated: {current_time}*',
