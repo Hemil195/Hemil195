@@ -1,18 +1,16 @@
-# GitHub Profile README Stats System
+# GitHub Profile Stats Logger
 
 ## Overview
 
-This system automatically updates your GitHub profile README.md with real-time statistics from GitHub, LeetCode, and HackerRank. The system runs as a GitHub Action on a scheduled basis and commits the updated stats directly to your repository.
+This system logs statistics from LeetCode and HackerRank for monitoring purposes. The actual stats are displayed in your README via embedded cards that update automatically.
 
 ## Features
 
-- 📊 **GitHub Statistics**: Total commits, stars, and top programming languages
-- 🧠 **LeetCode Stats**: Problems solved by difficulty, ranking
-- 🏆 **HackerRank Stats**: Badges, rank, and top skills
+- 🧠 **LeetCode Stats Card**: Real-time stats displayed via leetcard.jacoblin.cool
+- 🏆 **HackerRank Profile Badge**: Direct link to your HackerRank profile
 - ⚡ **Dynamic Typing Effect**: Animated text using readme-typing-svg
 - 👀 **Profile View Counter**: Track profile visits
-- 🔄 **Automated Updates**: Runs daily at 6:00 AM UTC
-- 📝 **Smart Updates**: Only commits when there are actual changes
+- 📊 **Stats Logging**: Optional scheduled logging for monitoring
 
 ## Setup Instructions
 
@@ -21,44 +19,24 @@ This system automatically updates your GitHub profile README.md with real-time s
 1. **Fork or Clone** this repository to your GitHub profile repository (must be named `{your-username}/{your-username}`)
 2. **Enable GitHub Actions** in your repository settings if not already enabled
 
-### Step 2: Required Secrets Configuration
+### Step 2: Secrets Configuration
 
 Navigate to your repository → **Settings** → **Secrets and variables** → **Actions**, then add the following secrets:
 
-#### Required Secrets:
-
-1. **TOKEN_GITHUB** (Required)
-   - Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)
-   - Generate a new token with the following scopes:
-     - `repo` (Full control of private repositories)
-     - `read:user` (Read user profile data)
-   - Copy the token and add it as a secret named `TOKEN_GITHUB`
-
 #### Optional Secrets:
 
-2. **LEETCODE_USERNAME** (Optional)
+1. **LEETCODE_USERNAME** (Optional)
    - Your LeetCode username (e.g., `your-leetcode-username`)
    - If not provided, LeetCode stats will be skipped
 
-3. **HACKERRANK_USERNAME** (Optional)
+2. **HACKERRANK_USERNAME** (Optional)
    - Your HackerRank username (e.g., `your-hackerrank-username`)
    - If not provided, HackerRank stats will be skipped
 
 ### Step 3: Customize Your README.md
 
 1. **Update Personal Information**: Edit the README.md file to include your personal details
-2. **Verify Placeholders**: Ensure the following comment blocks exist in your README.md:
-
-```markdown
-<!-- GITHUB_STATS_START -->
-<!-- GITHUB_STATS_END -->
-
-<!-- LEETCODE_STATS_START -->
-<!-- LEETCODE_STATS_END -->
-
-<!-- HACKERRANK_STATS_START -->
-<!-- HACKERRANK_STATS_END -->
-```
+2. **Update Usernames**: Replace the LeetCode and HackerRank usernames in the README with your own
 
 ### Step 4: Test the Setup
 
@@ -86,25 +64,13 @@ schedule:
 
 ### Common Issues
 
-#### 1. "TOKEN_GITHUB not found" Error
-- **Solution**: Ensure you've added the `TOKEN_GITHUB` secret with proper permissions
-- **Check**: Token must have `repo` and `read:user` scopes
-
-#### 2. "Permission denied" Error
-- **Solution**: Check repository permissions and GitHub Actions settings
-- **Verify**: Repository settings → Actions → General → Workflow permissions
-
-#### 3. LeetCode/HackerRank Stats Not Updating
+#### 1. LeetCode/HackerRank Stats Not Updating
 - **Solution**: Verify usernames are correct and profiles are public
 - **Check**: Test usernames manually in browser
 
-#### 4. README Not Committing
+#### 2. README Not Committing
 - **Solution**: Ensure the workflow has write permissions
 - **Check**: The git config and push steps in the workflow
-
-#### 5. Rate Limiting Issues
-- **Solution**: The script includes built-in delays, but you can increase them
-- **Modify**: Add longer `time.sleep()` values in the Python script
 
 ### Debug Steps
 
@@ -122,8 +88,6 @@ schedule:
    pip install requests beautifulsoup4
 
    # Set environment variables
-   export TOKEN_GITHUB="your_token"
-   export GITHUB_USERNAME="your_username"
    export LEETCODE_USERNAME="your_leetcode_username"
    export HACKERRANK_USERNAME="your_hackerrank_username"
 
@@ -133,10 +97,8 @@ schedule:
 
 ## Security Considerations
 
-1. **Token Security**: Never expose your GitHub token in code or logs
-2. **Minimal Permissions**: Use tokens with only necessary scopes
-3. **Secret Management**: Use GitHub Secrets, never commit tokens to repository
+1. **Secret Management**: Use GitHub Secrets, never commit sensitive data to repository
 
 ---
 
-**Note**: This system respects the terms of service of all platforms (GitHub, LeetCode, HackerRank) and includes appropriate rate limiting and error handling.
+**Note**: This system respects the terms of service of all platforms (LeetCode, HackerRank) and includes appropriate rate limiting and error handling.

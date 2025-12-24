@@ -2,10 +2,16 @@
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=600&lines=Full+Stack+Developer;Open+Source+Enthusiast;Problem+Solver;Always+Learning;Tech+Innovator;Welcome+to+my+GitHub+Profile!)](https://git.io/typing-svg)
+<a href="https://git.io/typing-svg" target="_blank">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=600&lines=Full+Stack+Developer;Open+Source+Enthusiast;Problem+Solver;Always+Learning;Tech+Innovator;Welcome+to+my+GitHub+Profile!" alt="Typing SVG" />
+</a>
 
-[![GitHub followers](https://img.shields.io/github/followers/Hemil195?style=social&label=Followers)](https://github.com/Hemil195)
-[![GitHub stars](https://img.shields.io/github/stars/Hemil195?style=social&label=Stars)](https://github.com/Hemil195)
+<a href="https://github.com/Hemil195" target="_blank">
+  <img src="https://img.shields.io/github/followers/Hemil195?style=social&label=Followers" alt="GitHub followers" />
+</a>
+<a href="https://github.com/Hemil195" target="_blank">
+  <img src="https://img.shields.io/github/stars/Hemil195?style=social&label=Stars" alt="GitHub stars" />
+</a>
 
 </div>
 
@@ -20,58 +26,29 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 - ⚡ **Fun fact**: I believe clean code is not just a practice, it's an art form!
 
 
-## 📊 GitHub Statistics
-
-<!-- GITHUB_STATS_START -->
-- 🔥 **Total Commits:** 10
-- ⭐ **Total Stars:** 3  
-- 📚 **Top Languages:** TypeScript, CSS, HTML
-<!-- GITHUB_STATS_END -->
-
-<div align="center">
-  
-![Hemil's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Hemil195&show_icons=true&theme=radical&count_private=true&include_all_commits=true&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&icon_color=58A6FF)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Hemil195&layout=compact&theme=radical&langs_count=8&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9)
-
-![GitHub Streak](https://streak-stats.demolab.com/?user=Hemil195&theme=radical&hide_border=true&background=0D1117&stroke=58A6FF&ring=58A6FF&fire=FF6B6B&currStreakNum=C9D1D9&sideNums=C9D1D9&currStreakLabel=58A6FF&sideLabels=58A6FF&dates=6E7681)
-
-</div>
-
 ## 🧠 Coding Platforms & Achievements
 
 ### 💻 LeetCode 
 <div align="center">
   
-[![LeetCode Profile](https://img.shields.io/badge/LeetCode-hemilpatel0195-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/hemilpatel0195)
+<a href="https://leetcode.com/hemilpatel0195" target="_blank">
+  <img src="https://img.shields.io/badge/LeetCode-hemilpatel0195-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode Profile" />
+</a>
 
-![LeetCode Stats](https://leetcard.jacoblin.cool/hemilpatel0195?theme=dark&font=Roboto&ext=contest&hide_border=true&border_radius=10)
+<a href="https://leetcode.com/hemilpatel0195" target="_blank">
+  <img src="https://leetcard.jacoblin.cool/hemilpatel0195?theme=dark&font=Roboto&ext=contest&hide_border=true&border_radius=10" alt="LeetCode Stats" />
+</a>
 
 </div>
-
-<!-- LEETCODE_STATS_START -->
-**📈 Automated Stats:**
-- 📈 **Problems Solved:** 0
-- 🟢 **Easy:** 0
-- 🟡 **Medium:** 0  
-- 🔴 **Hard:** 0
-- 🏆 **Ranking:** N/A
-<!-- LEETCODE_STATS_END -->
 
 ### 🏆 HackerRank
 <div align="center">
   
-[![HackerRank Profile](https://img.shields.io/badge/HackerRank-hemilpatel0195-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white)](https://www.hackerrank.com/profile/hemilpatel0195)
+<a href="https://www.hackerrank.com/profile/hemilpatel0195" target="_blank">
+  <img src="https://img.shields.io/badge/HackerRank-hemilpatel0195-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white" alt="HackerRank Profile" />
+</a>
 
 </div>
-
-<!-- HACKERRANK_STATS_START -->
-**🏅 Automated Stats:**
-- 🏅 **Badges:** 0
-- 🎯 **Rank:** N/A
-- 💎 **Skills:** Problem Solving, Algorithms
-- 📊 **Points:** 0
-<!-- HACKERRANK_STATS_END -->
 
 
 ## 🛠️ Technologies & Tools
@@ -99,9 +76,15 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 <div align="center">
 
-[![GitHub](https://img.shields.io/badge/GitHub-Hemil195-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Hemil195)
-[![LeetCode](https://img.shields.io/badge/LeetCode-hemilpatel0195-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/hemilpatel0195)
-[![HackerRank](https://img.shields.io/badge/HackerRank-hemilpatel0195-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white)](https://www.hackerrank.com/profile/hemilpatel0195)
+<a href="https://github.com/Hemil195" target="_blank">
+  <img src="https://img.shields.io/badge/GitHub-Hemil195-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+</a>
+<a href="https://leetcode.com/hemilpatel0195" target="_blank">
+  <img src="https://img.shields.io/badge/LeetCode-hemilpatel0195-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode" />
+</a>
+<a href="https://www.hackerrank.com/profile/hemilpatel0195" target="_blank">
+  <img src="https://img.shields.io/badge/HackerRank-hemilpatel0195-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white" alt="HackerRank" />
+</a>
 
 </div>
 
