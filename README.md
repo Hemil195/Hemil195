@@ -6,9 +6,13 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=600&lines=Full+Stack+Developer;Open+Source+Enthusiast;Problem+Solver;Always+Learning;Tech+Innovator;Welcome+to+my+GitHub+Profile!" alt="Typing SVG" />
 </a>
 
+<br/>
+<br/>
+
 <a href="https://github.com/Hemil195" target="_blank">
   <img src="https://img.shields.io/github/followers/Hemil195?style=social&label=Followers" alt="GitHub followers" />
 </a>
+&nbsp;&nbsp;
 <a href="https://github.com/Hemil195" target="_blank">
   <img src="https://img.shields.io/github/stars/Hemil195?style=social&label=Stars" alt="GitHub stars" />
 </a>
@@ -25,15 +29,20 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 - 💬 **Ask me about**: JavaScript, React, Node.js, Python, Web Development
 - ⚡ **Fun fact**: I believe clean code is not just a practice, it's an art form!
 
+---
 
 ## 🧠 Coding Platforms & Achievements
 
-### 💻 LeetCode 
+### 💻 LeetCode
+
 <div align="center">
-  
+
 <a href="https://leetcode.com/hemilpatel0195" target="_blank">
   <img src="https://img.shields.io/badge/LeetCode-hemilpatel0195-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode Profile" />
 </a>
+
+<br/>
+<br/>
 
 <a href="https://leetcode.com/hemilpatel0195" target="_blank">
   <img src="https://leetcard.jacoblin.cool/hemilpatel0195?theme=dark&font=Roboto&ext=contest&hide_border=true&border_radius=10" alt="LeetCode Stats" />
@@ -42,16 +51,21 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 </div>
 
 ### 🏆 HackerRank
+
 <div align="center">
-  
+
 <a href="https://www.hackerrank.com/profile/hemilpatel0195" target="_blank">
   <img src="https://img.shields.io/badge/HackerRank-hemilpatel0195-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white" alt="HackerRank Profile" />
 </a>
 
 </div>
 
+---
+---
 
 ## 🛠️ Technologies & Tools
+
+<div align="center">
 
 ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
@@ -63,6 +77,12 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 ![Git](https://img.shields.io/badge/-Git-F05032?style=flat&logo=git&logoColor=white)
 ![VS Code](https://img.shields.io/badge/-VS%20Code-007ACC?style=flat&logo=visual-studio-code&logoColor=white)
 
+</div>
+
+---
+
+---
+
 ## 📈 Live GitHub Activity
 
 <div align="center">
@@ -71,6 +91,8 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 </div>
 
+---
+---
 
 ## 🤝 Connect With Me
 
@@ -79,9 +101,11 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 <a href="https://github.com/Hemil195" target="_blank">
   <img src="https://img.shields.io/badge/GitHub-Hemil195-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
 </a>
+&nbsp;
 <a href="https://leetcode.com/hemilpatel0195" target="_blank">
   <img src="https://img.shields.io/badge/LeetCode-hemilpatel0195-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode" />
 </a>
+&nbsp;
 <a href="https://www.hackerrank.com/profile/hemilpatel0195" target="_blank">
   <img src="https://img.shields.io/badge/HackerRank-hemilpatel0195-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white" alt="HackerRank" />
 </a>
