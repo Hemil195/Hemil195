@@ -96,7 +96,7 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 <div align="center">
 
-<img src="https://nirzak-streak-stats.vercel.app/?user=Hemil195&theme=dark&hide_border=false&background=161B22&stroke=58A6FF&ring=58A6FF&fire=58A6FF&currStreakNum=58A6FF&sideNums=8B949E&sideLabels=8B949E&dates=8B949E" alt="GitHub Streak Stats" />
+<img src="assets/github-streak-stats.svg" alt="GitHub Streak Stats" />
 
 </div>
 
