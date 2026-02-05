@@ -96,7 +96,7 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 <div align="center">
 
-[![GitHub Streak](https://streak-stats.demolab.com/?user=Hemil195&theme=dark)](https://git.io/streak-stats)
+<img src="https://streak-stats.demolab.com/?user=Hemil195&theme=dark&hide_border=true" alt="GitHub Streak Stats" />
 
 </div>
 
