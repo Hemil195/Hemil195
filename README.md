@@ -92,15 +92,6 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 ---
 
-## � GitHub Stats
-
-<div align="center">
-
-<img src="assets/github-streak-stats.svg" alt="GitHub Streak Stats" />
-
-</div>
-
----
 
 ## �📈 Live GitHub Activity
 
