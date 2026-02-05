@@ -34,7 +34,7 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 ## 🚀 GitHub Activity Game
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Hemil195/Hemil195/output/github-contribution-grid-snake-dark.svg" alt="GitHub Contribution Snake" />
+  <img src="assets/space-shooter.gif" alt="GitHub Space Shooter" />
 </p>
 
 <div align="center">
