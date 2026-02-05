@@ -37,16 +37,6 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
   <img src="assets/space-shooter.gif" alt="GitHub Space Shooter" />
 </p>
 
-<div align="center">
-
-### 🎮 Contribution Shooter Stats
-
-![GitHub Snake](https://raw.githubusercontent.com/Hemil195/Hemil195/output/snake.svg)
-
-[![GitHub Game of Life](https://github4life.herokuapp.com/Hemil195.gif?z=6)](https://github4life.herokuapp.com/Hemil195)
-
-</div>
-
 ---
 
 ## 🧠 Coding Platforms & Achievements
