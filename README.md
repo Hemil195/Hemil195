@@ -37,6 +37,12 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
   <img src="assets/space-shooter.gif" alt="GitHub Space Shooter" />
 </p>
 
+<div align="center">
+
+### 🎮 Play to see my GitHub contributions in action!
+
+</div>
+
 ---
 
 ## 🧠 Coding Platforms & Achievements
@@ -52,9 +58,7 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 <br/>
 <br/>
 
-<a href="https://leetcode.com/hemilpatel0195" target="_blank">
-  <img src="https://leetcard.jacoblin.cool/hemilpatel0195?theme=dark&font=Roboto&ext=contest&hide_border=true&border_radius=10" alt="LeetCode Stats" />
-</a>
+![](https://leetcard.jacoblin.cool/hemilpatel0195?font=Dancing_Script)
 
 </div>
 
@@ -68,7 +72,6 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 </div>
 
----
 ---
 
 ## 🛠️ Technologies & Tools
@@ -89,6 +92,14 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 ---
 
+## 🔥 GitHub Streak Stats
+
+<div align="center">
+
+[![GitHub Streak](https://streak-stats.demolab.com/?user=Hemil195&theme=dark)](https://git.io/streak-stats)
+
+</div>
+
 ---
 
 ## 📈 Live GitHub Activity
@@ -99,7 +110,6 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 </div>
 
----
 ---
 
 ## 🤝 Connect With Me
