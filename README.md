@@ -31,6 +31,24 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 ---
 
+## 🚀 GitHub Activity Game
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Hemil195/Hemil195/output/github-contribution-grid-snake-dark.svg" alt="GitHub Contribution Snake" />
+</p>
+
+<div align="center">
+
+### 🎮 Contribution Shooter Stats
+
+![GitHub Snake](https://raw.githubusercontent.com/Hemil195/Hemil195/output/snake.svg)
+
+[![GitHub Game of Life](https://github4life.herokuapp.com/Hemil195.gif?z=6)](https://github4life.herokuapp.com/Hemil195)
+
+</div>
+
+---
+
 ## 🧠 Coding Platforms & Achievements
 
 ### 💻 LeetCode
