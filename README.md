@@ -92,7 +92,6 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 ---
 
-
 ## �📈 Live GitHub Activity
 
 <div align="center">
