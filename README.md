@@ -98,6 +98,8 @@ I'm a passionate **Full Stack Developer** with a love for creating innovative so
 
 ![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Hemil195&theme=react-dark&hide_border=true&bg_color=0D1117&color=58A6FF&line=58A6FF&point=58A6FF&area=true&hide_title=true)
 
+<img src="https://streak-stats.demolab.com/?user=Hemil195&hide_border=true&background=0d1117&stroke=00D4FF&ring=00D4FF&fire=00D4FF&currStreakLabel=00D4FF&sideNums=00D4FF&currStreakNum=ffffff&dates=ffffff" alt="GitHub Streak Stats" />
+
 </div>
 
 ---
